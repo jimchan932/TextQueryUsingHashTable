@@ -95,20 +95,6 @@ bool linearProbeInsert(HashTable *ht, ub4 key, ub1 *word, int sentence_num)
 	return false;
 }
 
-
-/*
-int main(void)
-{
-	HashTable *ht = createHashTable(10);
-
-	char* sampleText = "This is the end, surrender";
-	linearProbeInsert(ht, 1, "asdf", 1);
-	printf("%s", linearProbeFind(ht, 1, "asdf"));
-	deleteHashTable(ht);
-	printf("Hello World!");
-	return 0;
-}
-*/
 int quadraticProbeFindIndex(HashTable *ht, ub4 key, ub1 *word, bool countCollisions)
 {
 	int index = (key & hashmask(ht->D));
