@@ -89,15 +89,12 @@ void testbench(char *filename)
 	TextSample.paragraph = processText(filename);
 	TextSample.paragraph_len = strlen(TextSample.paragraph);	
 	TextSample.paragraph = replaceSpace(TextSample.paragraph);
-
-	TextSample.num_of_words = countWords(TextSample.paragraph,
-										 TextSample.paragraph_len); 	
-
-	
+	TextSample.num_of_words = countWords(TextSample.paragraph, TextSample.paragraph_len); 		
 	splitSentences(&TextSample);
-	//printf("#%s#", TextSample.paragraph);
+
 	char queryWord[30]; 
 	scanf("%s", queryWord);
+	
 	ub4 key1 = hash_djb2(queryWord);
 	ub4 key2 = hash_sdbm(queryWord);
 	ub4 key3 = hash_loseLose(queryWord);
@@ -235,8 +232,6 @@ void testbench(char *filename)
 	deleteHashTable(&hashTableB2);
 	deleteHashTable(&hashTableB3);
 	deleteHashTable(&hashTableB4);
-	printf("\n%d", TextSample.paragraph_len);
-	printf("\n%d", TextSample.num_of_sentences);
 }
 
 int main(void)
